@@ -1,0 +1,16 @@
+.Axis path,
+.Axis line {
+  stroke: #E0E0E0;
+  opacity: 0;
+}
+
+.Axis text {
+  font-size: 12px;
+  fill:#999;
+  font-family: "Whitney-Semibold Regular";
+}
+
+.Axis-Bottom text {
+  transform: rotate(-45deg);
+  text-anchor: end;
+}

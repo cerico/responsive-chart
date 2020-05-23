@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"workbench.colorTheme": "zombies_ate_my_neighbors",
+		"javascript.updateImportsOnFileMove.enabled": "always",
+	}
+}
