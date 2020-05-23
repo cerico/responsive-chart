@@ -5,7 +5,7 @@ import './fonts/whitneysemibold.woff'
 import './index.css'
 
 ReactDOM.render(
-  <div style={{ textAlign: 'center' }}>
+  <div>
     <App />,
   </div>,
   document.getElementById('root')
