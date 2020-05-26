@@ -12,6 +12,19 @@ export default class Bars extends Component {
       .interpolate(interpolateLab)
   }
 
+  triggerOut(e) {
+    this.props.onMouseOut(e)
+  }
+
+  triggerOver(e) {
+    const {
+        xScale,
+        yScale
+    } = this.props
+
+    this.props.onMouseOver(e, xScale, yScale)
+  }
+
   render() {
     const { scales, margins, data, svgDimensions } = this.props
     const { xScale, yScale } = scales
@@ -26,6 +39,9 @@ export default class Bars extends Component {
           height={height - margins.bottom - scales.yScale(datum.value)}
           width={xScale.bandwidth()}
           fill={this.colorScale(datum.value)}
+          onClick={() => alert(datum.value)}
+          onMouseOver={this.triggerOver.bind(this)}
+          onMouseOut={this.triggerOut.bind(this)}
         />,
       )
     )
