@@ -98,6 +98,10 @@ class Chart extends Component {
       xTooltip: null,
       yTooltip: null,
       t_opacity: null,
+      tool: {
+        title: 'December',
+        value: 141,
+      }
       // containerwidth: 200,
   }
   }
@@ -108,6 +112,12 @@ class Chart extends Component {
         yTooltip: null,
         t_opacity: null
     })
+}
+
+toolTipValue(e){
+  this.setState({
+    tool: e
+  })
 }
 
 mouseOver(e) {
@@ -158,10 +168,10 @@ mouseOver(e) {
     return (
       <Div toolwidth={this.props.toolTipContainerWidth} direction={this.props.full ? 'column' : 'width'}>
         <div className={this.props.full ? 'full-tip' : 'side-tip'} {...this.state}>
-          <div className="april">April 2020</div>
+          <div className="april">{this.state.tool.title} 2020</div>
           <div className="last-bill">
             <div>Your last bill</div>
-            <div>£78.42</div>
+            <div>£{this.state.tool.value}</div>
           </div>
         </div>
         <svg width={svgDimensions.width} height={svgDimensions.height}>
@@ -177,6 +187,7 @@ mouseOver(e) {
             svgDimensions={svgDimensions}
             onMouseOver={this.mouseOver.bind(this)}
             onMouseOut={this.mouseOut.bind(this)}
+            onClick={(e) => this.toolTipValue(e)}
           />
           <Lines
             scales={scales}
